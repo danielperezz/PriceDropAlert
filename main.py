@@ -32,9 +32,9 @@ def check_price(url, desired_price, price_xpath):
 
 
 # --------- CHANGE THE VALUES TO ADAPT ---------- #
-product_url = r'https://www.blackandwhiteisrael.co.il/product/%d7%9b%d7%a4%d7%9b%d7%a4%d7%99-%d7%a7%d7%95%d7%9c%d7%95%d7%a8-%d7%9b%d7%a1%d7%a3/'
-desired_price = 170
-price_xpath = '//*[@id="product-1265711"]/div[1]/div[2]/div/div/div[2]/div/p/ins/span'
+product_url = r'https://www.terminalx.com/z552090005?color=10'
+desired_price = 300
+price_xpath = '//*[@id="app-root"]/div[2]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div[2]/div/div/div'
 # ---------------------------------------------- #
 
 display = Display(visible=0, size=(1600, 902))
