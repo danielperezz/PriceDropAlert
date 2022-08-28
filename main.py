@@ -11,7 +11,7 @@ from selenium.webdriver.chrome.service import Service
 
 
 def send_whatsapp_alert(price, url):
-    wtp_url = "https://web.whatsapp.com/send?phone=+972503493335"
+    wtp_url = "https://web.whatsapp.com/send?phone=+972XXXXXX"
     msg = "Exiting News! This product price is currently " + \
         str(price) + "₪ Check it out: " + url
     # options = Options()
