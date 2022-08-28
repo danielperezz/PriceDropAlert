@@ -23,8 +23,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: execute py script # run main.py
-        #env:
-        #SOME_SECRET: ${{ secrets.SOME_SECRET }}
+        env:
+          CHAT_ID: ${{ secrets.TELEGRAM_TO }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         run: python main.py
 
       - name: commit files
@@ -39,4 +40,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
-      

@@ -8,30 +8,41 @@ import time
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
+import telebot
+import os
 
 
-def send_whatsapp_alert(price, url):
-    wtp_url = "https://web.whatsapp.com/send?phone=+972XXXXXX"
+def send_telegram_alert(price, url):
+    CHAT_ID = os.environ['CHAT_ID']
+    TELEGRAM_TOKEN = os.environ['TELEGRAM_TOKEN']
+    bot = telebot.TeleBot(TELEGRAM_TOKEN)
     msg = "Exiting News! This product price is currently " + \
         str(price) + "₪ Check it out: " + url
-    # options = Options()
-    # options.add_argument(
-    #     r"user-data-dir=whatsapp_profile")
+    bot.send_message(CHAT_ID, msg)
 
-    # options.add_argument("profile-directory=whatsapp_profile")
-    wtp_driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()))
-    wtp_driver.get(wtp_url)
-    try:
-        typebox = WebDriverWait(wtp_driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, r'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]')))
-        time.sleep(3)
-        typebox.send_keys(msg)
-        time.sleep(3)
-        typebox.send_keys(Keys.ENTER)
-        time.sleep(3)
-    finally:
-        wtp_driver.close()
+
+# def send_whatsapp_alert(price, url):
+#     wtp_url = "https://web.whatsapp.com/send?phone=+972503493335"
+#     msg = "Exiting News! This product price is currently " + \
+#         str(price) + "₪ Check it out: " + url
+#     # options = Options()
+#     # options.add_argument(
+#     #     r"user-data-dir=whatsapp_profile")
+
+#     # options.add_argument("profile-directory=whatsapp_profile")
+#     wtp_driver = webdriver.Chrome(
+#         service=Service(ChromeDriverManager().install()))
+#     wtp_driver.get(wtp_url)
+#     try:
+#         typebox = WebDriverWait(wtp_driver, 20).until(
+#             EC.presence_of_element_located((By.XPATH, r'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]')))
+#         time.sleep(3)
+#         typebox.send_keys(msg)
+#         time.sleep(3)
+#         typebox.send_keys(Keys.ENTER)
+#         time.sleep(3)
+#     finally:
+#         wtp_driver.close()
 
 
 def check_price():
@@ -44,11 +55,11 @@ def check_price():
             EC.presence_of_element_located((By.XPATH, '//*[@id="product-1265711"]/div[1]/div[2]/div/div/div[2]/div/p/ins/span')))
         price = int(element.text[1:])
         if (price < 170):
-            send_whatsapp_alert(price, url)
+            send_telegram_alert(price, url)
     finally:
         driver.close()
 
 
-# display = Display(visible=0, size=(1600, 902))
-# display.start()
+display = Display(visible=0, size=(1600, 902))
+display.start()
 check_price()
