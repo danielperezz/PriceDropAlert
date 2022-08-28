@@ -39,4 +39,4 @@ price_xpath = '//*[@id="product-1265711"]/div[1]/div[2]/div/div/div[2]/div/p/ins
 
 display = Display(visible=0, size=(1600, 902))
 display.start()
-check_price()
+check_price(product_url, desired_price, price_xpath)
