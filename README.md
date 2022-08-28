@@ -1,9 +1,13 @@
 # PriceDropAlert
 
 ## Description:
-a python script to check the price of a product and send a telegram message if it's lower then a certain number
+A python script to check the price of a product and send a telegram message if it's lower then a certain number
 
 ## How to Use:
-* change the `product_url` variable to the url of the desired product
-* change the `desired_price`
-* change the `price_xpath` to the xpath of the price html element (get it by using inspect, then tracking the price element, right click > copy xpath
+* Change the `product_url` variable to the url of the desired product
+* Change the `desired_price`
+* Change the `price_xpath` to the xpath of the price html element (get it by inspecting the webpage, then tracking the price element, then right click on it's code block > copy xpath)
+* In your github repo, add two secrets: 
+  * `CHAT_ID` for your bot chat id
+  * `TELEGRAM_TOKEN` for yout bot secret token
+  * You can get them both using [this tutorial](https://medium.com/cocoaacademymag/how-to-integrate-github-actions-with-slack-telegram-and-whatsapp-67a4dca0f17d#:~:text=Integrating%20with%20Telegram) 
