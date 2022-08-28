@@ -1,9 +1,8 @@
 name: run main.py
 
 on:
-  push
-  # schedule:
-  #   - cron: "*/5 * * * *" # Every 5 minutes
+  schedule:
+    - cron: "0 8 * * *" # Every 5 minutes
 
 jobs:
   build:

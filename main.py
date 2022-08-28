@@ -24,7 +24,7 @@ def check_price(url, desired_price, price_xpath):
     try:
         element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, price_xpath)))
-        price = float(element.text.strip(" ₪"))
+        price = float(element.text.strip(" ₪$"))
         if (price < desired_price):
             send_telegram_alert(price, url)
     finally:
@@ -33,7 +33,7 @@ def check_price(url, desired_price, price_xpath):
 
 # --------- CHANGE THE VALUES TO ADAPT ---------- #
 product_url = r'https://www.terminalx.com/z552090005?color=10'
-desired_price = 300
+desired_price = 180
 price_xpath = '//*[@id="app-root"]/div[2]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div[2]/div/div/div'
 # ---------------------------------------------- #
 
