@@ -25,6 +25,7 @@ def check_price(url, desired_price, price_xpath):
         element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, price_xpath)))
         price = float(element.text.strip(" ₪$"))
+        print(price)
         if (price < desired_price):
             send_telegram_alert(price, url)
     finally:
