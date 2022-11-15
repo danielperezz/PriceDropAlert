@@ -34,7 +34,7 @@ def check_price(url, desired_price, price_xpath):
 
 # --------- CHANGE THE VALUES TO ADAPT ---------- #
 product_url = r'https://www.terminalx.com/default-category/x796830005?color=10'
-desired_price = 500
+desired_price = 400
 price_xpath = '//*[@id="app-root"]/div[2]/main/div[2]/div/div/div[2]/div[1]/div[2]/div/div[2]/div/div/div'
 # ---------------------------------------------- #
 
